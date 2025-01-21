@@ -18,9 +18,8 @@ const TodoListApp = () => {
     }));
   };
 
-  console.log(expandedRows);
   return (
-    <div>
+    <div className="todo">
       <h1>Student To-Do List</h1>
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>

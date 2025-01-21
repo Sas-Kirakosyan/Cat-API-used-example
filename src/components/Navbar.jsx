@@ -26,7 +26,6 @@ export default function Navbar() {
         ) : (
           categories?.map((cat, i) => (
             <NavLink
-              activeClassName="active-link"
               className="navlink"
               key={cat.id + i}
               to={`/cats/${cat.id}`}
