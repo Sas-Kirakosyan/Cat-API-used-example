@@ -93,6 +93,7 @@ button:focus-visible {
   border: 1px solid;
   margin: 2px;
   border-radius: 3px;
+  color: #ccc;
 }
 .paginate .selected-btn {
   background: rgb(191, 255, 0);
