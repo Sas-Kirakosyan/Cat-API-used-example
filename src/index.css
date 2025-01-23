@@ -78,6 +78,26 @@ button:focus-visible {
 .navbar {
   width: 100%;
 }
+.images-list {
+  min-height: 450px;
+  /* height: 850px; */
+}
+.paginate {
+  display: flex;
+  justify-content: center;
+}
+.button-pg {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #292d84;
+  border: 1px solid;
+  margin: 2px;
+  border-radius: 3px;
+}
+.paginate .selected-btn {
+  background: rgb(191, 255, 0);
+  color: blue;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
