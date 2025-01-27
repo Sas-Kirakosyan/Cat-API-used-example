@@ -12,6 +12,7 @@ import Profiles from "./pages/Profiles";
 import ProfilePage from "./pages/ProfilePage";
 import CatAppContainer from "./pages/CatAppContainer";
 import CatAppContent from "./components/CatAppContent";
+import CatDetails from "./components/CatDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,10 @@ const router = createBrowserRouter([
   {
     path: "cats",
     element: <CatAppContainer />,
-    children: [{ path: ":id", element: <CatAppContent /> }],
+    children: [
+      { path: ":categoryId", element: <CatAppContent /> },
+      { path: ":categoryId/:id", element: <CatDetails /> },
+    ],
   },
   {
     path: "/profiles",

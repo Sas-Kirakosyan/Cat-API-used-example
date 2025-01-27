@@ -6,7 +6,7 @@ const API_KEY =
 // const page = 1;
 // const limit = 5;
 export default function CatAppContent() {
-  const { id } = useParams();
+  const { categoryId } = useParams();
 
   const [images, setImages] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,8 +28,8 @@ export default function CatAppContent() {
       try {
         setLoading(true);
         const response = await fetch(
-          // `https://api.thecatapi.com/v1/images/search?limit=5&order=ASC&page=1&category_ids=${id}`,
-          `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=ASC&page=${id}&limit=${5}`,
+          // `https://api.thecatapi.com/v1/images/search?limit=5&order=ASC&page=1&category_ids=${categoryId}`,
+          `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&has_breeds=true&order=ASC&page=${categoryId}&limit=${5}`,
           requestOptions
         );
 
@@ -43,17 +43,17 @@ export default function CatAppContent() {
     };
 
     fetchCats();
-  }, [id]);
+  }, [categoryId]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-
+  //   fetch(`https://api.thecatapi.com/v1/images/${id}`)
   return (
     <div>
       <h2>Images</h2>
       <div className="imagesList">
         {images?.map((image) => (
-          <Card key={image.id} image={image} />
+          <Card key={image.id} image={image} categoryId={categoryId} />
         ))}
       </div>
     </div>
