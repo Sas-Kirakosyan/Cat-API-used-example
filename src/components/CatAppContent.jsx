@@ -28,9 +28,11 @@ export default function CatAppContent() {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://api.thecatapi.com/v1/images/search?limit=5&order=ASC&page=1&category_ids=${id}`,
+          // `https://api.thecatapi.com/v1/images/search?limit=5&order=ASC&page=1&category_ids=${id}`,
+          `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=ASC&page=${id}&limit=${5}`,
           requestOptions
         );
+
         const data = await response.json();
         setImages(data);
       } catch (err) {
