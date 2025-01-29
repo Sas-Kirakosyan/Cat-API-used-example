@@ -35,7 +35,11 @@ const CatDetails = ({ categoryId }) => {
     <div>
       <h1>{catDetails.breeds[0]?.name || "Unknown Breed"}</h1>
       <p>Category: {categoryId}</p>
-      <img src={catDetails.url} alt={catDetails.breeds[0]?.name || "Cat"} />
+      <img
+        style={{ width: "70%" }}
+        src={catDetails.url}
+        alt={catDetails.breeds[0]?.name || "Cat"}
+      />
       <p>{catDetails.breeds[0]?.description}</p>
       <p>Origin: {catDetails.breeds[0]?.origin}</p>
       <p>Life Span: {catDetails.breeds[0]?.life_span} years</p>
