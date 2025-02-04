@@ -6,7 +6,7 @@ export default function Card({ image, categoryId }) {
   console.log({ image, id });
   return (
     <Link to={`/cats/${categoryId}/${id}`}>
-      <img src={url} width={"auto"} height="200px" />;
+      <img src={url} width={"200"} height="220px" />;
     </Link>
   );
 }

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
+import Loader from "./Loader";
+
 const API_KEY =
   "live_xSJse1L779LQBlpNBwKyUwjWzp7DZSVt9HrTT4wb7GcYsO9ieOFB72mmwo1qUWJP";
 // const page = 1;
-// const limit = 5;
+const limit = 5;
 export default function CatAppContent() {
   const { categoryId } = useParams();
 
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState(new Array(limit));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -28,8 +30,7 @@ export default function CatAppContent() {
       try {
         setLoading(true);
         const response = await fetch(
-          // `https://api.thecatapi.com/v1/images/search?limit=5&order=ASC&page=1&category_ids=${categoryId}`,
-          `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&has_breeds=true&order=ASC&page=${categoryId}&limit=${5}`,
+          `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&has_breeds=true&order=ASC&page=${categoryId}&limit=${limit}`,
           requestOptions
         );
 
@@ -45,9 +46,10 @@ export default function CatAppContent() {
     fetchCats();
   }, [categoryId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
   //   fetch(`https://api.thecatapi.com/v1/images/${id}`)
+
   return (
     <div>
       <h2>Images</h2>
