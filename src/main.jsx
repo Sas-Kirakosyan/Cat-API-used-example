@@ -13,11 +13,17 @@ import ProfilePage from "./pages/ProfilePage";
 import CatAppContainer from "./pages/CatAppContainer";
 import CatAppContent from "./components/CatAppContent";
 import CatDetails from "./components/CatDetails";
+import FishApp from "./pages/FishApp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Todos />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "/fish-app",
+    element: <FishApp />,
     errorElement: <NotFound />,
   },
   {
